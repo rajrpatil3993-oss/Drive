@@ -6,12 +6,56 @@
   height: 100vh;
   background-color: #121212;
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 4rem;
+  font-family: monospace;
   text-align: center;
 }
 
 .ascii-art {
-  font-family: monospace;
-  font-size: 1.2rem;
-  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  display: flex;
+  gap: 10px;
+  font-size: 5rem; /* Adjust this for bigger/smaller letters */
+  animation: fadeIn 2s ease-in-out;
+}
+
+.letter {
+  font-weight: bold;
+  animation: colorChange 3s infinite;
+}
+
+/* Color animation for each character */
+.letter-t {
+  animation-delay: 0s;
+}
+.letter-y {
+  animation-delay: 0.5s;
+}
+.letter-a {
+  animation-delay: 1s;
+}
+
+@keyframes colorChange {
+  0% { color: red; }
+  25% { color: yellow; }
+  50% { color: green; }
+  75% { color: cyan; }
+  100% { color: purple; }
+}
+
+/* Loader */
+.loader {
+  margin-top: 20px;
+  font-size: 3rem;
+  animation: spin 2s linear infinite; /* Continuous spin animation */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
