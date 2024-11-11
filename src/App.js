@@ -26,7 +26,6 @@ function App() {
         <div className="text">
           <span className="letter letter-t">T</span>
           <span className="letter letter-y">Y</span>
-          <span className="letter letter--">-</span>
           <span className="letter letter-a">A</span>
         </div>
         {showLoader && <div className="loader">*</div>} {/* Display loader until page loads */}
