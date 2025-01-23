@@ -9,7 +9,6 @@
   font-size: 4rem;
   font-family: monospace;
   text-align: center;
-  position: relative; /* Required to position visitor counter */
 }
 
 .ascii-art {
@@ -20,25 +19,27 @@
 
 .text {
   display: flex;
-  gap: 10px;
-  font-size: 5rem; /* Adjust this for bigger/smaller letters */
+  gap: 15px; /* Increase gap between letters */
+  font-size: 15rem; /* Increase font size */
   animation: fadeIn 2s ease-in-out;
 }
 
 .letter {
   font-weight: bold;
-  animation: colorChange 3s infinite;
+  animation: colorChange 3s infinite, bounce 1s infinite, netflix 1.5s forwards, scaleUp 2s infinite, rotate 1s infinite;
+  display: inline-block;
+  opacity: 0; /* Start with invisible letters */
+  transform: translateZ(1000px); /* Start from far away */
 }
 
-/* Color animation for each character */
 .letter-t {
-  animation-delay: 0s;
+  animation-delay: 0s, 0s, 0s, 0s, 0s;
 }
 .letter-y {
-  animation-delay: 0.5s;
+  animation-delay: 0.5s, 0.5s, 0.5s, 0.5s, 0.5s;
 }
 .letter-a {
-  animation-delay: 1s;
+  animation-delay: 1s, 1s, 1s, 1s, 1s;
 }
 
 @keyframes colorChange {
@@ -49,16 +50,54 @@
   100% { color: purple; }
 }
 
-/* Loader */
-.loader {
-  margin-top: 20px;
-  font-size: 3rem;
-  animation: spin 2s linear infinite; /* Continuous spin animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px); /* Increase bounce height */
+  }
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@keyframes netflix {
+  0% {
+    transform: translateZ(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2); /* Scale up */
+  }
+}
+
+@keyframes textAnimation {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg); /* Full rotation */
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 /* Visitor Counter */
@@ -72,4 +111,32 @@
 }
 .visitor-counter span {
   margin-right: 5px; /* Space between icon and count */
+}
+
+@media (max-width: 768px) {
+  .App {
+    font-size: 5rem; /* Further increase font size */
+  }
+
+  .text {
+    font-size: 11rem; /* Further increase font size */
+  }
+
+  .visitor-counter {
+    font-size: 2.5rem; /* Further increase font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    font-size: 4.5rem; /* Further increase font size */
+  }
+
+  .text {
+    font-size: 9rem; /* Further increase font size */
+  }
+
+  .visitor-counter {
+    font-size: 2.25rem; /* Further increase font size */
+  }
 }
