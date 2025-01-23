@@ -27,7 +27,7 @@ function App() {
       window.location.href = "https://drive.google.com/drive/folders/1IXxbMOwnqnXvhLXb9RWxABt4bqBOMa2_?usp=sharing";
     }
   }, [loadingComplete]);
-
+//from pruthviraj
   return (
     <div className="App">
       <div className="ascii-art">
