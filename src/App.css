@@ -26,20 +26,19 @@
 
 .letter {
   font-weight: bold;
-  animation: colorChange 3s infinite, bounce 1s infinite, netflix 1.5s forwards, scaleUp 2s infinite, rotate 1s infinite;
   display: inline-block;
   opacity: 0; /* Start with invisible letters */
-  transform: translateZ(1000px); /* Start from far away */
+  animation: fadeIn 1.5s forwards, flash-animation 0.8s infinite, colorChange 3s infinite, glow 1.5s infinite;
 }
 
 .letter-t {
-  animation-delay: 0s, 0s, 0s, 0s, 0s;
+  animation-delay: 0s, 0s, 0s, 0s;
 }
 .letter-y {
-  animation-delay: 0.5s, 0.5s, 0.5s, 0.5s, 0.5s;
+  animation-delay: 0.2s, 0.5s, 0.5s, 0.5s;
 }
 .letter-a {
-  animation-delay: 1s, 1s, 1s, 1s, 1s;
+  animation-delay: 0.4s, 1s, 1s, 1s;
 }
 
 @keyframes colorChange {
@@ -100,6 +99,84 @@
   }
 }
 
+@keyframes drop-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wave-animation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes flip-animation {
+  0% {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes flash-animation {
+  0%, 50%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  25%, 75% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes rubberband-animation {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* Visitor Counter */
 .visitor-counter {
   position: absolute;
@@ -138,5 +215,23 @@
 
   .visitor-counter {
     font-size: 2.25rem; /* Further increase font size */
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 55px #ff00ff, 0 0 75px #ff00ff;
+  }
+  50% {
+    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 8px #ff00ff, 0 0 10px #ff00ff, 0 0 12px #ff00ff, 0 0 14px #ff00ff, 0 0 16px #ff00ff;
   }
 }
