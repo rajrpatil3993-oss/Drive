@@ -14,7 +14,7 @@ function AnimatedApp() {
   useEffect(() => {
     if (loadingComplete) {
       // Redirect to Drive after 3 seconds of loading
-      // window.location.href = "https://drive.google.com/drive/folders/1IXxbMOwnqnXvhLXb9RWxABt4bqBOMa2_?usp=sharing";
+      window.location.href = "https://drive.google.com/drive/folders/1IXxbMOwnqnXvhLXb9RWxABt4bqBOMa2_?usp=sharing";
     }
   }, [loadingComplete]);
 
