@@ -19,84 +19,65 @@
 
 .text {
   display: flex;
-  gap: 15px; /* Increase gap between letters */
-  font-size: 15rem; /* Increase font size */
+  gap: 10px; /* Slightly reduced gap for more letters */
+  font-size: 12rem; /* Adjusted font size for better fit */
   animation: fadeIn 2s ease-in-out;
+  flex-wrap: wrap; /* Allow wrapping if needed */
+  justify-content: center;
 }
 
 .letter {
   font-weight: bold;
   display: inline-block;
   opacity: 0; /* Start with invisible letters */
-  animation: fadeIn 1.5s forwards, flash-animation 0.8s infinite, colorChange 3s infinite, glow 1.5s infinite;
+  animation: fadeIn 1.5s forwards;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
-.letter-t {
+.letter-c {
   animation-delay: 0s, 0s, 0s, 0s;
 }
-.letter-y {
-  animation-delay: 0.2s, 0.5s, 0.5s, 0.5s;
+.letter-s {
+  animation-delay: 0.1s, 0.2s, 0.2s, 0.2s;
+}
+.letter-e {
+  animation-delay: 0.2s, 0.4s, 0.4s, 0.4s;
+}
+.letter-space {
+  animation-delay: 0.3s, 0.6s, 0.6s, 0.6s;
+  width: 1rem;
 }
 .letter-a {
-  animation-delay: 0.4s, 1s, 1s, 1s;
+  animation-delay: 0.4s;
+}
+.dot {
+  animation: fadeIn 0.3s forwards, dotBlink 0.6s infinite;
+}
+.dot-1 {
+  animation-delay: 0.5s, 0.6s;
+}
+.dot-2 {
+  animation-delay: 0.6s, 0.7s;
+}
+.dot-3 {
+  animation-delay: 0.7s, 0.8s;
 }
 
-@keyframes colorChange {
-  0% { color: red; }
-  25% { color: yellow; }
-  50% { color: green; }
-  75% { color: cyan; }
-  100% { color: purple; }
-}
-
-@keyframes bounce {
-  0%, 100% {
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
     transform: translateY(0);
   }
-  50% {
-    transform: translateY(-15px); /* Increase bounce height */
-  }
 }
 
-@keyframes netflix {
-  0% {
-    transform: translateZ(1000px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateZ(0);
-    opacity: 1;
-  }
-}
-
-@keyframes scaleUp {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2); /* Scale up */
-  }
-}
-
-@keyframes textAnimation {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(360deg); /* Full rotation */
-  }
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(360deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+@keyframes dotBlink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
 
 @keyframes drop-animation {
